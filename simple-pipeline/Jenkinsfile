@@ -20,12 +20,29 @@ pipeline {
                         }
                     }
                 }
-            }
+			(	
+ : { 
+			
+ }
         }
 
+	stage('stage 2') {
+            steps {
+              sh 'echo hello from stage 2!'
+            }
+       }
+         stage('manual approval')
+             steps {
+               timeout(time: 60, units: 'MINUTES') }
+                 input message: "Move to stotage 3?"
+               }
+       } 
+		       	
+ 	
         // TODO: ADD A STAGE THAT SAYS HELLO
 
         // TODO: ADD AN APPROVAL STAGE
+       // TODO: run this simple pipeline on jenkins 'master' node
 
         stage('stage 3') {
             steps {
